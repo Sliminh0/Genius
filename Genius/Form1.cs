@@ -103,9 +103,47 @@ namespace Genius
 
         private void SortearCor()
         {
+            //escolhe aleatoriamente uma cor do array "cores" e guarda em "atualCor"
+            atualCor = cores[rdn.Next(0, cores.Length)];
+
+            //adiciona a nova cor sorteada a lista da sequencia do computador
+            sequencialCores.Add(atualCor);
+
+            //para cada cor ja existente na sequencia, reproduz o efeito visual e sonoro
+            foreach(var cor in sequencialCores)
+            {
+                //processa eventos da interface antes de "pausar"
+                Application.DoEvents();
+
+                //pequena pausa entre cada cor da sequencia (para o jogador conseguir acompanhar)
+                Thread.Sleep(250);
+
+                //chama o metodo que procura e pisca a cor
+                ProcuraCor(cor);
+            }
+
+            //apos terminar de mostrar a sequencia, libera o jogador para começar a clicar
+            podejogar = true;
 
         }
 
+        //evento disparado quando o jogador clica em um dos botões coloridos (PictureBox)
+        private void Clique(object sender, EventArgs e)
+        {
+            //converte o objeto "sender" para PictureBox  (o botao que foi clicado)
+            PictureBox pb = (PictureBox)sender;
+
+            //só processa o clique se o jogador estiver liberado para jogar
+            if (podejogar)
+            {
+                //bloqueia novos cliques ate que a logica de verificação seja concluida
+                podejogar = false;
+
+                //pega a tag do PictureBox clicada (Ex: "R", "G", "B", "Y")
+                atualCor = pb.Tag.ToString();
+            }
+        }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 
