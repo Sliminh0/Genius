@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -56,6 +56,34 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // opçõesToolStripMenuItem
+            // 
+            this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iniciarToolStripMenuItem,
+            this.sobreToolStripMenuItem,
+            this.sairToolStripMenuItem});
+            this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.opçõesToolStripMenuItem.Text = "Opções";
+            // 
+            // iniciarToolStripMenuItem
+            // 
+            this.iniciarToolStripMenuItem.Name = "iniciarToolStripMenuItem";
+            this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.iniciarToolStripMenuItem.Text = "Iniciar";
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(132, 26);
+            this.sairToolStripMenuItem.Text = "Sair";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Red;
@@ -64,6 +92,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(265, 258);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -103,34 +132,6 @@
             this.label1.Size = new System.Drawing.Size(124, 36);
             this.label1.TabIndex = 5;
             this.label1.Text = "Pontos:";
-            // 
-            // opçõesToolStripMenuItem
-            // 
-            this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iniciarToolStripMenuItem,
-            this.sobreToolStripMenuItem,
-            this.sairToolStripMenuItem});
-            this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
-            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.opçõesToolStripMenuItem.Text = "Opções";
-            // 
-            // iniciarToolStripMenuItem
-            // 
-            this.iniciarToolStripMenuItem.Name = "iniciarToolStripMenuItem";
-            this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.iniciarToolStripMenuItem.Text = "Iniciar";
-            // 
-            // sobreToolStripMenuItem
-            // 
-            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.sobreToolStripMenuItem.Text = "Sobre";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.sairToolStripMenuItem.Text = "Sair";
             // 
             // Form1
             // 

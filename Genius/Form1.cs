@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -52,6 +53,57 @@ namespace Genius
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mostrarcor(PictureBox pic, Color corClara, Color corEscura, SoundPlayer som)
+        {
+            //Muda de cor de fundo para versão mais clara
+            pic.BackColor = corClara;
+
+            //toca o som associado á cor
+            som.Play();
+
+            //Processa eventos pendentes da interface
+            Application.DoEvents();
+
+            //Mantém a cor acessa por 850 milisegundos
+            Thread.Sleep(850);
+
+            //volta a cor de fundo ao estado original
+            pic.BackColor = corEscura;
+        }
+
+        //procura entre os controles do formularia a picturebox cuja tag corresponde a cor informada e chama Mostracor para fazer essa cor piscas com seu som
+        private void ProcuraCor(string tagPic)
+        {
+            //percorre todos os picturebox existentes no formulário
+            foreach (var corEncontrada in Controls.OfType<PictureBox>())
+            {
+                //verifica se a tag do picturebox é igual à cor que queremos piscar
+                if(corEncontrada.Tag.ToString() == tagPic)
+                {
+                    //Guarda a tag (cor) do PictureBox encontrado
+                    string tag = corEncontrada.Tag.ToString();
+
+                    //Calcula uma versão mais clara da cor atual (para efeito de piscar)
+                    Color piscar = ControlPaint.Light(corEncontrada.BackColor, brilho);
+
+                    //seleciona o som correto de acordo com a tag (R -> beep_1, G -> beep_2, B -> beep_3, Y -> beep_4)
+                    SoundPlayer som = tag == "R" ? audios[0] : (tag == "G" ? audios[1] : (tag == "B" ? audios[2] : audios[3]));
+                    Mostrarcor(corEncontrada, piscar, corEncontrada.BackColor, som);
+
+                }
+            }
+        }
+
+        private void SortearCor()
+        {
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
